@@ -1,0 +1,20 @@
+# scientific libs
+numpy
+pandas
+matplotlib
+scipy
+
+# utility libs
+jupyter
+ipython
+requests
+
+# db support libs
+sqlalchemy
+alembic
+psycopg2
+mysqlclient
+
+# code convention libs
+flake8
+pep8-naming

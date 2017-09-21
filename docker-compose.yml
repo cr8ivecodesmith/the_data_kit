@@ -1,0 +1,43 @@
+version: '2'
+
+services:
+    app:
+        restart: always
+        build:
+            context: .
+        image: the_data_kit:latest
+        volumes:
+            - ./:/home/caffeine/project
+        user: "1000:caffeine"
+        ports:
+            - "8888:8888"
+        container_name: tdk_app
+        working_dir: "/home/caffeine/project"
+        command: ['/home/caffeine/project/docker-start.sh']
+        links:
+            - pgsql
+            - mysql
+
+    pgsql:
+        restart: always
+        image: postgres:latest
+        env_file:
+            - ./var/etc/pgsql.env
+        volumes:
+            - ./var/etc/postgres/initdb.d/init-db-user.sh:/docker-entrypoint-initdb.d/init-db-user.sh
+            - ./var/lib/postgres:/var/lib/postgresql/data/
+        ports:
+            - "2345:5432"
+        container_name: tdk_pgsql
+
+    mysql:
+        restart: always
+        image: mysql:latest
+        env_file:
+            - ./var/etc/mysql.env
+        volumes:
+            - ./var/lib/mysql:/var/lib/mysql
+            - ./var/etc/mysql/conf.d:/etc/mysql/conf.d
+        ports:
+            - "6033:3306"
+        container_name: tdk_mysql
