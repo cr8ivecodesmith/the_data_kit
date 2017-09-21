@@ -13,11 +13,11 @@ Contributions are welcome!
 - Docker Compose
 
 
-Tested on:
+*Tested on:*
 
 - Ubuntu 16.04
-- Docker (17.06.2-ce)
-- Docker Compose (1.15.0,)
+- Docker 17.06.2-ce
+- Docker Compose 1.15.0
 
 
 ## Usage
@@ -31,7 +31,7 @@ $ find . -iname "*.sh" | xargs chmod +x
 $ docker-compose -p tdk run -d --service-ports --name tdk_app app
 ```
 
-Then open your browser to: <a href="http://0.0.0.0:8888" target="_blank">http://0.0.0.0:8888</a>
+Then open your browser to: http://0.0.0.0:8888
 
 Default password is `changeme`
 
