@@ -31,7 +31,7 @@ $ find . -iname "*.sh" | xargs chmod +x
 $ docker-compose -p tdk run -d --service-ports --name tdk_app app
 ```
 
-The open your browser to: http://0.0.0.0:8888
+Then open your browser to: <a href="http://0.0.0.0:8888" target="_blank">http://0.0.0.0:8888</a>
 
 Default password is `changeme`
 
