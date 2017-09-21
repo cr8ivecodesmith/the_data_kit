@@ -3,6 +3,18 @@ The Data Kit Project
 
 A good starting point for python experiments with data processing in mind.
 
+
+**Features:**
+
+- Runs python 3.x
+- Runs an unprivileged user that maps to your host user ID
+- Runs a jupyter notebook by default
+- App container python libs are installed in a virtualenv
+- Contains most commonly used python scientific libs
+- Links up MySQL and PostgreSQL containers and are also accessible from your host machine
+- All database encodings are UTF8
+
+
 Contributions are welcome!
 
 
@@ -13,7 +25,7 @@ Contributions are welcome!
 - Docker Compose
 
 
-*Tested on:*
+**Tested on:**
 
 - Ubuntu 16.04
 - Docker 17.06.2-ce
