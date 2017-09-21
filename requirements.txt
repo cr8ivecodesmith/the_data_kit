@@ -13,6 +13,7 @@ requests
 sqlalchemy
 alembic
 psycopg2
+PyMySQL
 mysqlclient
 
 # code convention libs
