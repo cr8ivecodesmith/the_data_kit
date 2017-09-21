@@ -3,12 +3,21 @@ The Data Kit Project
 
 A good starting point for python experiments with data processing in mind.
 
+Contributions are welcome!
+
 
 ## Minimum Requirements
 
-- Ubuntu 16.04
+- Linux OS
 - Docker
 - Docker Compose
+
+
+Tested on:
+
+- Ubuntu 16.04
+- Docker (17.06.2-ce)
+- Docker Compose (1.15.0,)
 
 
 ## Usage
@@ -18,8 +27,8 @@ A good starting point for python experiments with data processing in mind.
 Start the docker services
 
 ```
-find . -iname "*.sh" | xargs chmod +x
-docker-compose -p tdk run -d --service-ports --name tdk_app app
+$ find . -iname "*.sh" | xargs chmod +x
+$ docker-compose -p tdk run -d --service-ports --name tdk_app app
 ```
 
 The open your browser to: http://0.0.0.0:8888
@@ -32,19 +41,21 @@ All configuration defaults can be found in `var/etc/`
 
 #### 2)
 
-Destroy created containers
-
-```
-docker rm tdk_app tdk_pgsql tdk_mysql
-```
-
-
-#### 3)
-
 Execute shell commands in the app container
 
 ```
-docker exec -it tdk_app bash
+$ docker exec -it tdk_app bash
+```
+
+#### 3)
+
+Add additional python libs on a running app container
+
+```
+$ docker exec -it tdk_app bash
+
+caffeine@9a346c93b8d9:~/project$ . ~/venv/bin/activate
+(venv) caffeine@9a346c93b8d9:~/project$ pip install [some-python-lib]
 ```
 
 
