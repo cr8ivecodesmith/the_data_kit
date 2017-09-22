@@ -11,8 +11,22 @@ A good starting point for python experiments with data processing in mind.
 - Runs a jupyter notebook by default
 - App container python libs are installed in a virtualenv
 - Contains most commonly used python scientific libs
-- Links up MySQL and PostgreSQL containers and are also accessible from your host machine
+- Links up MySQL and PostgreSQL containers and are also accessible from your
+  host machine (0.0.0.0:6033 and 0.0.0.0:2345 respectively)
 - All database encodings are UTF8
+- All database volumes are mapped in `var/lib` for persistence
+
+
+Other configured docker containers available for linking:
+
+- redis
+- memcached
+- rabbitmq
+- mongo
+- couchdb
+
+You can simply add these to the `link` parameter of the `app` service in the
+compose file if you need to use them.
 
 
 Contributions are welcome!

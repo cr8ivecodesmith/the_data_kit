@@ -41,3 +41,41 @@ services:
         ports:
             - "6033:3306"
         container_name: tdk_mysql
+
+    redis:
+        restart: always
+        image: redis:latest
+        volumes:
+            - ./var/lib/redis:/data
+        container_name: tdk_redis
+
+    memcached:
+        restart: always
+        image: memcached:latest
+        container_name: tdk_memcached
+
+    rabbitmq:
+        restart: always
+        image: rabbitmq:management
+        env_file:
+            - ./var/etc/rabbitmq.env
+        volumes:
+            - ./var/lib/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@caffeine_rq
+        hostname: "caffeine_rq"
+        container_name: tdk_rabbitmq
+
+    mongo:
+        restart: always
+        image: mongo:latest
+        volumes:
+            - ./var/lib/mongo:/data/db
+        container_name: tdk_mongo
+
+    couchdb:
+        restart: always
+        image: apache/couchdb:latest
+        env_file:
+            - ./var/etc/couchdb.env
+        volumes:
+            - ./var/lib/couchdb:/opt/couchdb/data
+        container_name: tdk_couchdb
